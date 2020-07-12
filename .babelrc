@@ -1,0 +1,10 @@
+{
+    "comments": false,
+    "presets": [
+      "extendscript"
+    ],
+    "plugins": [
+        "babel-plugin-transform-es3-member-expression-literals",
+        "babel-plugin-transform-es5-property-mutators"
+    ]
+}
