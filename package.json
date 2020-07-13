@@ -12,9 +12,12 @@
   "scripts": {
     "test": "eslint . --ext .js --ignore-path .gitignore && ava --timeout=10s"
   },
-  "repository": "git://github.com/kisoyuki/shim-for-extendscript.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kisoyuki/shim-for-extendscript.git"
+  },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com/kisoyuki"
   },
   "keywords": [
     "shim",
