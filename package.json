@@ -12,9 +12,9 @@
   "scripts": {
     "test": "eslint . --ext .js --ignore-path .gitignore && ava --timeout=10s"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/KisoYuki/shim-for-extendscript.git"
+  "repository": "git://github.com/kisoyuki/shim-for-extendscript.git",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "keywords": [
     "shim",
@@ -32,9 +32,9 @@
   "author": "kisoyuki",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/KisoYuki/shim-for-extendscript/issues"
+    "url": "https://github.com/kisoyuki/shim-for-extendscript/issues"
   },
-  "homepage": "https://github.com/KisoYuki/shim-for-extendscript#readme",
+  "homepage": "https://github.com/kisoyuki/shim-for-extendscript#readme",
   "dependencies": {
     "ava": "^3.7.1",
     "@babel/core": "^7.9.0",
