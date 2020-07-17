@@ -3,6 +3,8 @@ This is a npm module that compiles es6 code into extendscript.
 
 ## Install
 ``` sh
+# add github repository to registry
+npm config set @kisoyuki:registry=https://npm.pkg.github.com/
 npm install --save-dev @kisoyuki/shim-for-extendscript
 ```
 
