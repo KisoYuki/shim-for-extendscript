@@ -10,7 +10,7 @@
     "shim-for-extendscript": "./bin/cli.js"
   },
   "scripts": {
-    "test": "eslint . --ext .js --ignore-path .gitignore && ava --timeout=10s"
+    "test": "eslint . --ext .js --ignore-path .gitignore && ava --timeout=30s"
   },
   "repository": {
     "type": "git",

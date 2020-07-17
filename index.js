@@ -45,7 +45,14 @@ async function compileScript (inputFile, outputFile) {
     .replace(/\r/gu, '/n')
   await inputHandle.close()
   const [adobeDirectives, retrieved] = retrieveAdobeDirectives(code)
-  const data = await babel.transformAsync(retrieved, { filename: '.babelrc' })
+  const babelOptions = {
+    presets: ["extendscript"],
+    plugins: [
+      "babel-plugin-transform-es3-member-expression-literals",
+      "babel-plugin-transform-es5-property-mutators"
+    ]
+  }
+  const data = await babel.transformAsync(retrieved, babelOptions)
   const resultCode = putBackAdobeDirectives(adobeDirectives, data.code)
   if (outputFile) {
     const dirPath = path.dirname(outputFile)
@@ -59,8 +66,18 @@ async function compileScript (inputFile, outputFile) {
   return resultCode
 }
 
-async function lintFiles (files, options = {}) {
-  const eslint = new ESLint(options)
+async function lintFiles (files) {
+  const baseConfig = {
+    env: {
+      browser: true,
+      commonjs: true,
+      es6: true,
+      "extendscript/extendscript": true
+    },
+    extends: ["eslint:recommended"],
+    plugins: ["skip-adobe-directives", "extendscript"]
+  }
+  const eslint = new ESLint({ baseConfig: baseConfig })
   const results = await eslint.lintFiles(files)
   const formatter = await eslint.loadFormatter("stylish")
   const message = formatter.format(results)
