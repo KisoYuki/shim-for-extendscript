@@ -127,7 +127,9 @@ class ShimForExtendScript {
         .then(code => {
           if (!that.quiet) {
             if (outputFile) {
-              console.log('compiled', inputFile, 'to', outputFile)
+              const today = new Date()
+              const curTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+              console.log('compiled', inputFile, 'to', outputFile, 'at', curTime)
             } else {
               console.log(code)
             }
